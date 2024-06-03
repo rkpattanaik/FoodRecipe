@@ -68,42 +68,42 @@ const CreateProfile = () => {
     };
 
     return (
-        <SafeAreaView className="bg-primary h-full">
-            <DateTimePickerModal
-                isVisible={isDatePickerVisible}
-                mode="date"
-                onConfirm={onDateSelected}
-                onCancel={hideDatePicker}
-            />
-            
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={isModalVisible}
-                onRequestClose={() => {
-                    Alert.alert('Modal has been closed.');
-                    toggleModal();
-                }}
-            >
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <Text style={styles.modalText}>Name: {form.name}</Text>
-                        <Text style={styles.modalText}>DOB: {form.dob}</Text>
-                        <Text style={styles.modalText}>Address: {form.address}, {form.city}, {form.state}, {form.country}</Text>
-                        <Pressable
-                            style={[styles.button, styles.buttonClose]}
-                            onPress={() => toggleModal()}
-                        >
-                            <Text style={styles.textStyle}>Okay</Text>
-                        </Pressable>
+        <SafeAreaView className="bg-primary h-full">            
+            <ScrollView className="px-4">
+                <DateTimePickerModal
+                    isVisible={isDatePickerVisible}
+                    mode="date"
+                    onConfirm={onDateSelected}
+                    onCancel={hideDatePicker}
+                />
+                
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={isModalVisible}
+                    onRequestClose={() => {
+                        Alert.alert('Modal has been closed.');
+                        toggleModal();
+                    }}
+                >
+                    <View style={styles.centeredView}>
+                        <View style={styles.modalView}>
+                            <Text style={styles.modalText}>Name: {form.name}</Text>
+                            <Text style={styles.modalText}>DOB: {form.dob}</Text>
+                            <Text style={styles.modalText}>Address: {form.address}, {form.city}, {form.state}, {form.country}</Text>
+                            <Pressable
+                                style={[styles.button, styles.buttonClose]}
+                                onPress={() => toggleModal()}
+                            >
+                                <Text style={styles.textStyle}>Okay</Text>
+                            </Pressable>
+                        </View>
                     </View>
-                </View>
-            </Modal>
-            
-            <ScrollView className="px-4 my-6">
-                <Text className="text-3xl text-white font-pmedium">Create Profile</Text>
+                </Modal>
 
-                <View className="mt-7 space-y-2">
+                <Text className="text-3xl text-white font-pmedium my-6">Create Profile</Text>
+
+                <View className="mt-2 space-y-2">
                     <Text className="text-base text-gray-100 font-pmedium">Profile Picture</Text>
 
                     <TouchableOpacity onPress={() => openImageicker()}>
@@ -178,7 +178,7 @@ const CreateProfile = () => {
                 <CustomButton
                     title="Submit"
                     handlePress={submit}
-                    containerStyles="mt-7"
+                    containerStyles="mt-7 mb-6"
                 />
             </ScrollView>
         </SafeAreaView>
